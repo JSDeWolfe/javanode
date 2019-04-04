@@ -12,6 +12,7 @@
  * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  * See the License for the specific language governing permissions and
  * limitations under the License.
+https://stackoverflow.com/questions/10323957/posting-json-to-rest-api
  */
 
 package com.example;
@@ -25,6 +26,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.sql.DataSource;
 import java.sql.Connection;
@@ -33,6 +35,8 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Map;
+import com.example.Ledger;
+import com.example.MiningService;
 
 @Controller
 @SpringBootApplication
@@ -58,6 +62,36 @@ public class Main {
     return "home";
   }
 
+  @RequestMapping(value="/transact", method = RequestMethod.POST)
+  String transact() {
+    try {
+    return "home";
+    }
+    catch(Exception e) {
+        return "except";
+    }
+  }
+  
+  @RequestMapping(value="/register", method = RequestMethod.GET)
+  String register() {
+    try {
+    return "register";
+    }
+    catch(Exception e) {
+        return "except";
+    }
+  }  
+  
+  @RequestMapping(value="/chain", method = RequestMethod.GET)
+  String chain() {
+    try {
+    return "chain";
+    }
+    catch(Exception e) {
+        return "except";
+    }
+  }  
+  
   @RequestMapping("/db")
   String db(Map<String, Object> model) {
     try (Connection connection = dataSource.getConnection()) {
