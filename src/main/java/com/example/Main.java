@@ -35,6 +35,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Map;
 import com.example.Ledger;
 import com.example.MiningService;
@@ -110,6 +111,20 @@ public class Main implements ChainInterface{
         return bcObject.getTransactions();
     }
   }   
+  
+  @RequestMapping(value="/testlist", method = RequestMethod.GET)
+  //@ResponseBody 
+  public List<String> testList() {
+	  List<String> returnlist = new ArrayList<String>();
+	  returnlist.add("hopefully works");
+	  returnlist.add("really hopefully works");
+    try {
+    return returnlist;
+    }
+    catch(Exception e) {
+        return returnlist;
+    }
+  }     
   
   @RequestMapping("/db")
   String db(Map<String, Object> model) {
