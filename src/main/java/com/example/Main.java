@@ -104,10 +104,10 @@ public class Main implements ChainInterface{
   public ArrayList<String> testArray() {
 	  BlockChain bcObject = BlockChain.getInstance();
     try {
-    return bcObject.current_transactions;
+    return bcObject.getTransactions();
     }
     catch(Exception e) {
-        return bcObject.current_transactions;
+        return bcObject.getTransactions();
     }
   }   
   
