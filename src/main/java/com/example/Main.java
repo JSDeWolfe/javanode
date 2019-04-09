@@ -14,7 +14,8 @@
  * limitations under the License.
 https://stackoverflow.com/questions/10323957/posting-json-to-rest-api
  */
-
+//http://www.techburps.com/spring-framework/json-response-with-responsebody/305
+//http://zetcode.com/springboot/responsebody/
 package com.example;
 
 import com.zaxxer.hikari.HikariConfig;
@@ -55,7 +56,7 @@ public class Main implements ChainInterface{
     SpringApplication.run(Main.class, args);
     BlockChain bcObject = BlockChain.getInstance();
     bcObject.new_transaction("sender", "receiver", "5");
-    bcObject.new_block(1,"0");
+    bcObject.new_block(100,"1");
   }
 
   @RequestMapping("/")
