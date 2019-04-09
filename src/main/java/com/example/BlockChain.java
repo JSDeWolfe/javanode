@@ -52,4 +52,8 @@ public class BlockChain {
 	   public ArrayList<ArrayList<String>> getChain(){
 		   return this.chain;
 	   }
+	   
+	   public ArrayList<String> getTransactions(){
+		   return this.current_transactions;
+	   }	   
 }
