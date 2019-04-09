@@ -140,6 +140,20 @@ public class Main implements ChainInterface{
     }
   } 
   
+  @RequestMapping(value="/returnchain", method = RequestMethod.GET)
+  public @ResponseBody 
+   ArrayList<ArrayList<String>> returnChain() {
+	  BlockChain bcObject = BlockChain.getInstance();
+	  ArrayList<ArrayList<String>> returnchain = new ArrayList<ArrayList<String>>();
+	  returnchain = bcObject.getChain();
+    try {
+    return returnchain;
+    }
+    catch(Exception e) {
+        return returnchain;
+    }
+  }   
+  
   @RequestMapping("/db")
   String db(Map<String, Object> model) {
     try (Connection connection = dataSource.getConnection()) {
