@@ -131,8 +131,9 @@ public class Main implements ChainInterface{
    List<String> newtestList() {
 	  BlockChain bcObject = BlockChain.getInstance();
 	  List<String> returnlist = new ArrayList<String>();
+	  returnlist = bcObject.getTransactions();
 	  returnlist.add("before");
-	  returnlist.add(bcObject.getTransactions().get(0));
+	  //returnlist.add(bcObject.getTransactions());
 	  returnlist.add("after");
     try {
     return returnlist;
