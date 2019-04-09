@@ -130,11 +130,12 @@ public class Main implements ChainInterface{
   public @ResponseBody 
    List<String> newtestList() {
 	  BlockChain bcObject = BlockChain.getInstance();
+	  List<String> returnlist = bcObject.getTransactions();
     try {
-    return bcObject.getTransactions();
+    return returnlist;
     }
     catch(Exception e) {
-        return bcObject.getTransactions();
+        return returnlist;
     }
   } 
   
