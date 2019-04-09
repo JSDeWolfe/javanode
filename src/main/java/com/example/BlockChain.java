@@ -18,6 +18,8 @@ public class BlockChain {
 	   private BlockChain(){
 		   this.chain = new ArrayList<ArrayList<String>>();
 		   this.nodes = new ArrayList<String>();
+		   this.current_transactions = new ArrayList<String>();
+		   
 	   }
 	   //should append the first 2 params to the inner array that the outer is ARRAY<<ARRAY>> 
 	   //check length to divide the transactions

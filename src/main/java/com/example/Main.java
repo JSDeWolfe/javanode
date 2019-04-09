@@ -116,8 +116,8 @@ public class Main implements ChainInterface{
   public @ResponseBody 
    List<String> testList() {
 	  List<String> returnlist = new ArrayList<String>();
-	  returnlist.add("hopefully works");
-	  returnlist.add("really hopefully works");
+	  returnlist.add("Testing JSON");
+	  returnlist.add("Testing another line of JSON");
     try {
     return returnlist;
     }
@@ -132,7 +132,7 @@ public class Main implements ChainInterface{
 	  BlockChain bcObject = BlockChain.getInstance();
 	  List<String> returnlist = new ArrayList<String>();
 	  returnlist.add("before");
-	  //returnlist.add(bcObject.current_transactions.get(0));
+	  returnlist.add(bcObject.getTransactions().get(0));
 	  returnlist.add("after");
     try {
     return returnlist;
