@@ -113,8 +113,8 @@ public class Main implements ChainInterface{
   }   
   
   @RequestMapping(value="/testlist", method = RequestMethod.GET)
-  //@ResponseBody 
-  public List<String> testList() {
+  public @ResponseBody 
+   List<String> testList() {
 	  List<String> returnlist = new ArrayList<String>();
 	  returnlist.add("hopefully works");
 	  returnlist.add("really hopefully works");
