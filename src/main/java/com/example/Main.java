@@ -39,7 +39,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 import com.example.Ledger;
-import com.example.MiningService;
+import com.example.ChainServices;
 import com.google.gson.Gson;
 
 @Controller
@@ -55,9 +55,8 @@ public class Main implements ChainInterface{
   public static void main(String[] args) throws Exception {
     SpringApplication.run(Main.class, args);
     BlockChain bcObject = BlockChain.getInstance();
-    bcObject.new_transaction("sender", "receiver", "5");
+    bcObject.new_transaction("initiate sender", "initiate receiver", "5");
     bcObject.new_block(100,"1");
-    bcObject.new_block(200,"2");
   }
 
   @RequestMapping("/")

@@ -17,5 +17,4 @@ public class WebServices {
 	public static void getJson() {
 		return;
 	}
-
 }

@@ -21,7 +21,7 @@ public class BlockChain {
 		   this.current_transactions = new ArrayList<String>();
 		   
 	   }
-	   //should append the first 2 params to the inner array that the outer is ARRAY<<ARRAY>> 
+	   //should append the first 2 parameters to the inner array that the outer is ARRAY<<ARRAY>> 
 	   //check length to divide the transactions
 	   public void new_block(int proof, String previous_hash) {
 		   if(current_transactions.isEmpty()) {
@@ -37,6 +37,7 @@ public class BlockChain {
 		   block.add(String.valueOf(proof));
 		   block.add(previous_hash);
 		   chain.add(block);
+		   current_transactions.clear();
 		   return;
 	   }
 	   
@@ -46,6 +47,11 @@ public class BlockChain {
 		   current_transactions.add(amt);
 		   return;
 	   }
+	   
+	   public void register_node(String nodelink) {
+		   nodes.add(nodelink);
+		   return;
+	   }	   
 
 	   //Get the only object available
 	   public static BlockChain getInstance(){
