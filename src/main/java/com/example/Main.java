@@ -57,6 +57,7 @@ public class Main implements ChainInterface{
     BlockChain bcObject = BlockChain.getInstance();
     bcObject.new_transaction("sender", "receiver", "5");
     bcObject.new_block(100,"1");
+    bcObject.new_block(200,"2");
   }
 
   @RequestMapping("/")
