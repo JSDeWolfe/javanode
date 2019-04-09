@@ -4,7 +4,7 @@ import java.util.List;
 
 public class BlockChain {
 	   ArrayList<ArrayList<String>> chain;  
-	   List<String> current_transactions;
+	   ArrayList<String> current_transactions;
 	   String transaction_sender;
 	   String transaction_receiver;	   
 	   String transaction_amount;
@@ -56,7 +56,7 @@ public class BlockChain {
 		   return this.chain;
 	   }
 	   
-	   public List<String> getTransactions(){
+	   public ArrayList<String> getTransactions(){
 		   return this.current_transactions;
 	   }	   
 }

@@ -128,13 +128,10 @@ public class Main implements ChainInterface{
   
   @RequestMapping(value="/newtestlist", method = RequestMethod.GET)
   public @ResponseBody 
-   List<String> newtestList() {
+   ArrayList<String> newtestList() {
 	  BlockChain bcObject = BlockChain.getInstance();
-	  List<String> returnlist = new ArrayList<String>();
+	  ArrayList<String> returnlist = new ArrayList<String>();
 	  returnlist = bcObject.getTransactions();
-	  returnlist.add("before");
-	  //returnlist.add(bcObject.getTransactions());
-	  returnlist.add("after");
     try {
     return returnlist;
     }
