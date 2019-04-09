@@ -126,6 +126,18 @@ public class Main implements ChainInterface{
     }
   }     
   
+  @RequestMapping(value="/newtestlist", method = RequestMethod.GET)
+  public @ResponseBody 
+   ArrayList<String> newtestList() {
+	  BlockChain bcObject = BlockChain.getInstance();
+    try {
+    return bcObject.getTransactions();
+    }
+    catch(Exception e) {
+        return bcObject.getTransactions();
+    }
+  } 
+  
   @RequestMapping("/db")
   String db(Map<String, Object> model) {
     try (Connection connection = dataSource.getConnection()) {
