@@ -27,7 +27,8 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-
+import org.springframework.web.bind.annotation.ResponseBody;
+import java.util.ArrayList;
 import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.ResultSet;
@@ -37,10 +38,11 @@ import java.util.ArrayList;
 import java.util.Map;
 import com.example.Ledger;
 import com.example.MiningService;
+import com.google.gson.Gson;
 
 @Controller
 @SpringBootApplication
-public class Main {
+public class Main implements ChainInterface{
 
   @Value("${spring.datasource.url}")
   private String dbUrl;
@@ -50,6 +52,9 @@ public class Main {
 
   public static void main(String[] args) throws Exception {
     SpringApplication.run(Main.class, args);
+    BlockChain bcObject = BlockChain.getInstance();
+    bcObject.new_transaction("sender", "receiver", "5");
+    bcObject.new_block(1,"0");
   }
 
   @RequestMapping("/")
@@ -72,7 +77,7 @@ public class Main {
     }
   }
   
-  @RequestMapping(value="/register", method = RequestMethod.GET)
+  @RequestMapping(value="/register", method = RequestMethod.POST)
   String register() {
     try {
     return "register";
@@ -83,12 +88,14 @@ public class Main {
   }  
   
   @RequestMapping(value="/chain", method = RequestMethod.GET)
-  String chain() {
+  @ResponseBody 
+  public ArrayList<ArrayList<String>> getChain() {
+	  BlockChain bcObject = BlockChain.getInstance();
     try {
-    return "chain";
+    return bcObject.getChain();
     }
     catch(Exception e) {
-        return "except";
+        return bcObject.getChain();
     }
   }  
   
@@ -122,6 +129,10 @@ public class Main {
       config.setJdbcUrl(dbUrl);
       return new HikariDataSource(config);
     }
+  }
+  
+  public ArrayList<ArrayList<String>> returnChain(BlockChain bc){
+	  return bc.getChain();
   }
 
 }
