@@ -128,7 +128,7 @@ public class Main implements ChainInterface{
   
   @RequestMapping(value="/newtestlist", method = RequestMethod.GET)
   public @ResponseBody 
-   ArrayList<String> newtestList() {
+   List<String> newtestList() {
 	  BlockChain bcObject = BlockChain.getInstance();
     try {
     return bcObject.getTransactions();
