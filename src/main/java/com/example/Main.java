@@ -100,6 +100,7 @@ public class Main implements ChainInterface{
   }  
   
   @RequestMapping(value="/testresponse", method = RequestMethod.GET)
+  @ResponseBody 
   public ArrayList<String> testArray() {
 	  BlockChain bcObject = BlockChain.getInstance();
     try {
