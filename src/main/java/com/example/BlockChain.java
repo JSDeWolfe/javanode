@@ -8,6 +8,7 @@ public class BlockChain {
 	   String transaction_sender;
 	   String transaction_receiver;	   
 	   String transaction_amount;
+	   String self_node_identifier = "gp4javanode";
 	   ArrayList<String> nodes;
 	   
 	   //create an object of SingleObject
@@ -23,7 +24,7 @@ public class BlockChain {
 	   }
 	   //should append the first 2 parameters to the inner array that the outer is ARRAY<<ARRAY>> 
 	   //check length to divide the transactions
-	   public void new_block(int proof, String previous_hash) {
+	   public void new_block(int proof, String previous_hash, boolean fromMining) {
 		   if(current_transactions.isEmpty()) {
 			   return;
 		   }
@@ -31,8 +32,15 @@ public class BlockChain {
 		   String index = String.valueOf(chain.size());
 		   block.add(index);
 		   block.add(String.valueOf(java.time.LocalDateTime.now()));
+		   if(fromMining) {
+			   block.add("0");
+			   block.add(this.self_node_identifier);
+			   block.add("5");
+		   }
+		   else {
 		   for(int i = 0;i<current_transactions.size();i++) {
 			   block.add(current_transactions.get(i));
+		   }
 		   }
 		   block.add(String.valueOf(proof));
 		   block.add(previous_hash);

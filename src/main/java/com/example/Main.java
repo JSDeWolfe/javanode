@@ -56,7 +56,7 @@ public class Main implements ChainInterface{
     SpringApplication.run(Main.class, args);
     BlockChain bcObject = BlockChain.getInstance();
     bcObject.new_transaction("initiate sender", "initiate receiver", "5");
-    bcObject.new_block(100,"1");
+    bcObject.new_block(100,"1",false);
   }
 
   @RequestMapping("/")

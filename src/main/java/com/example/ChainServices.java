@@ -11,7 +11,9 @@ public class ChainServices {
 	    int lastBlockIndex = bcObject.getChain().size() - 1;
 		ArrayList<String> last_block = bcObject.getChain().get(lastBlockIndex);
 		int lastProof = Integer.parseInt(last_block.get(5));
-		int newProof;
+		int newProof = proof_of_work(lastProof);
+		String prevhash = hash(bcObject.getChain().get(lastBlockIndex).toString());
+		bcObject.new_block(newProof, prevhash, true);
 	}
 	
     public static boolean valid_chain(ArrayList<String> otherchain, ArrayList<String> selfchain) {
@@ -50,14 +52,18 @@ public class ChainServices {
     	int proof = 0;
     	while(!valid_proof(last_proof, proof)) {
     		proof += 1;
-    	}
-    	
+    	}	
     	return proof;
     }
     
     private static boolean valid_proof(int last_proof,int proof) {
-    	
-    	return true;
+    	String hashreturn = hash(String.valueOf(last_proof)+String.valueOf(proof));
+    	if(hashreturn.substring(0,3).equals("0000")) {
+    	    return true;
+    	}
+    	else {
+    		return false;
+    	}
     }
     
     public static String hash(String msg) {
