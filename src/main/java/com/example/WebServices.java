@@ -18,8 +18,6 @@ import org.json.JSONObject;
 
 public class WebServices {
 	
-	private WebServices() {}
-	
 	public static void getJson(String url) {
 		try {
 			OkHttpClient client = new OkHttpClient();
@@ -30,7 +28,8 @@ public class WebServices {
 		try {
 			responses = client.newCall(request).execute();
 			String jsonData = responses.body().string();
-			JSONObject Jobject = new JSONObject(jsonData);
+			//JSONObject Jobject = new JSONObject(jsonData);
+			//error: A JSONObject text must begin with '{' at 1 [character 2 line 1]
 			System.out.println(jsonData);
 		}
 		catch(IOException ioe) {
