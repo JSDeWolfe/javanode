@@ -69,7 +69,7 @@ public class Main implements ChainInterface{
   @ResponseBody
   String home() {
 	//System.out.println("testing the logging on this");
-	  String returnVal = WebServices.getJson(" ");
+	  String returnVal = WebServices.getJsonV2(" ");
     return returnVal;
   }
 
