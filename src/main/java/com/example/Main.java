@@ -41,6 +41,7 @@ import java.util.Map;
 import com.example.Ledger;
 import com.example.ChainServices;
 import com.google.gson.Gson;
+import com.example.WebServices;
 
 @Controller
 @SpringBootApplication
@@ -66,6 +67,7 @@ public class Main implements ChainInterface{
 
   @RequestMapping("/home")
   String home() {
+	WebServices.getJson(" ");
     return "home";
   }
 
