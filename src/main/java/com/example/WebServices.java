@@ -11,10 +11,32 @@ package com.example;
 import java.io.IOException;
 
 import okhttp3.OkHttpClient;
+import okhttp3.Request;
+import okhttp3.Response;
+//import org.json.simple.JSONObject;
+
 
 public class WebServices {
 	
 	public static void getJson() {
-		return;
+		try {
+			OkHttpClient client = new OkHttpClient();
+		    Request request = new Request.Builder()
+		            .url("https://www")
+		            .build();
+		        Response responses = null;
+		try {
+			responses = client.newCall(request).execute();
+			String jsonData = responses.body().string();
+			//JSONObject Jobject = new JSONObject(jsonData);
+		}
+		catch(IOException ioe) {
+			ioe.printStackTrace();
+		}
 	}
+		finally {
+			System.out.println("stuff not workin");
+		}
 }
+}
+

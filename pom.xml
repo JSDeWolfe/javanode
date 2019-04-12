@@ -30,6 +30,11 @@
     <artifactId>jackson-mapper-asl</artifactId>  
     <version>1.9.13</version>  
   </dependency>  
+  <dependency>  
+    <groupId>org.json</groupId>  
+    <artifactId>json</artifactId>  
+    <version>20171018</version>  
+  </dependency>  
 <dependency>
     <groupId>com.squareup.okhttp3</groupId>
     <artifactId>okhttp</artifactId>
