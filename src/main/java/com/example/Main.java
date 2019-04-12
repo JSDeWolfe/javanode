@@ -65,12 +65,11 @@ public class Main implements ChainInterface{
     return "index";
   }
 
-  @RequestMapping("/a")
+  @RequestMapping("/getjsontest")
   @ResponseBody
   String home() {
-	//WebServices.getJson(" ");
 	//System.out.println("testing the logging on this");
-    return "testing the logging on this";
+    return WebServices.getJson(" ");
   }
 
   @RequestMapping(value="/transact", method = RequestMethod.POST)

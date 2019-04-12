@@ -18,7 +18,7 @@ import org.json.JSONObject;
 
 public class WebServices {
 	
-	public static void getJson(String url) {
+	public static String getJson(String url) {
 		try {
 			OkHttpClient client = new OkHttpClient();
 		    Request request = new Request.Builder()
@@ -32,6 +32,7 @@ public class WebServices {
 			//error: A JSONObject text must begin with '{' at 1 [character 2 line 1]
 			System.out.println("Print test");
 			System.out.println(jsonData);
+			return jsonData;
 		}
 		catch(IOException ioe) {
 			ioe.printStackTrace();
@@ -39,6 +40,7 @@ public class WebServices {
 	}
 		finally {
 			System.out.println("stuff not workin");
+			return "pinetree";
 		}
 }
 }
