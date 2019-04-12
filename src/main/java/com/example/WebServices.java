@@ -28,11 +28,10 @@ public class WebServices {
 		try {
 			responses = client.newCall(request).execute();
 			String jsonData = responses.body().string();
+			String jreturn = jsonData.toString();
 			//JSONObject Jobject = new JSONObject(jsonData);
 			//error: A JSONObject text must begin with '{' at 1 [character 2 line 1]
-			System.out.println("Print test");
-			System.out.println(jsonData);
-			return jsonData;
+			return jreturn;
 		}
 		catch(IOException ioe) {
 			ioe.printStackTrace();
