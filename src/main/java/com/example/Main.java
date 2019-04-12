@@ -68,6 +68,7 @@ public class Main implements ChainInterface{
   @RequestMapping("/home")
   String home() {
 	WebServices.getJson(" ");
+	System.out.println("testing the logging on this");
     return "home";
   }
 
